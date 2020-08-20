@@ -41,7 +41,12 @@ class Airplane {
 */
 
 class Person {
-
+ constructor(attr){
+   this.name = attr.name;
+   this.age = atttr.age;
+   this.stomach= [];
+ }
+ 
 }
 
 /*
@@ -59,8 +64,18 @@ class Person {
 */
 
 class Car {
-
+constructor(attr){
+  this.tank=attr.tank;
+  this.odometer=attr.odometer;
 }
+gas.fill(gallons){
+  return `Ive filled your tank to ${this.tank}`;
+}
+}
+const vehicle = new Car ({
+  tank:0,
+  odometer:0,
+});
 
 /*
   TASK 3
@@ -75,8 +90,21 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(attr){
+    this.name=attr.name;
+    this.age=attr.age;
+    this.location=attr.location;
+  }
+speak(){
+return `Hello my name is ${this.name}, Im from ${this.location}`;
 }
+}
+const student = new Lambdasian({
+  name:'Antoine',
+  lacation:'North Carolina',
+  age:30,
+});
+
 
 /*
   TASK 4
@@ -92,9 +120,22 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
+class Instructor extends Lambdasian{
+  constructor(attr){
+    super(attr);
+    this.catchPhrase=attr.catchPhrase;
+  }
+speak(){return `${this.name} says ${this.catchPhrase}`;
 }
+}
+
+const professor = new Instructor({
+  name:'Brit',
+  location:'USA',
+  age:'21 forever!!!'
+  catchPhrase:'Dont forget the Homie',
+  favLanguage:'JavaScript',
+});
 
 /*
   TASK 5
@@ -111,9 +152,26 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian{
+  constructor(attr){
+    super(attr);
+    this.favFood=attr.favFood;
+    this.previousBG=attr.previousBG;
+    this.favSubj=attr.favSubj;
+  }
+speak(){
+  return `${this.name} says he is from ${this.location} and his favorite class is ${this.favSubj}`
 }
+}
+
+const student = new Student({
+  name:'Antoine'
+  age:30,
+  catchPhrase:undefined,
+  favLanguage:'css',
+  favFood:'spagetti 🍝',
+  previousBG:'Recording Artist, and Live Performer'
+});
 
 /*
   TASK 6
@@ -128,9 +186,25 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(attr){
+    super(attr);
+  }
+standUp(){
+  return `${this.name} announces to ${this.channel} at stand times`
 }
+}
+
+const promngmt = new Instructor({
+  name:'elijah',
+  age:'21 forevermore!!!',
+  catchPhrase:'cmon guys you got this',
+  favLanguage:'javascript',
+ gradClassName:'Cs1',
+ favInstructor:undefined,
+
+})
+
 
 /*
   STRETCH PROBLEM (no tests!)
