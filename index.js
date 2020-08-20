@@ -47,7 +47,6 @@ class Person {
    this.stomach= [];
  }
  
- } 
 }
 
 /*
